@@ -206,16 +206,16 @@ h2.title{font-family:var(--display);font-weight:400;font-size:clamp(2.1rem,4.4vw
 .handle{font-weight:800;color:var(--soft)}
 
 /* ---------- footer ---------- */
-.foot{position:relative;margin-top:28px;background:var(--rose-soft);color:var(--plum);border-radius:56px 56px 0 0;padding:84px 0 36px}
+.foot{position:relative;margin-top:28px;background:var(--rose-soft);color:var(--plum);border-radius:44px 44px 0 0;padding:52px 0 22px}
 .lounger{position:absolute;right:max(28px,calc(50% - 560px + 40px));bottom:calc(100% - 8px);height:170px;width:auto;pointer-events:none}
 .foot-row{display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
 .foot-btns{display:flex;gap:12px;flex-wrap:wrap}
-.foot-logo{height:clamp(54px,9vw,84px);width:auto;display:block}
+.foot-logo{height:clamp(42px,7vw,62px);width:auto;display:block}
 .foot p{margin-top:10px;font-weight:700;color:#7a4a66}
 .foot .regno{margin-top:8px;font-size:.84rem;font-weight:700;letter-spacing:.02em;color:#5e3350}
-.foot .tagline{margin-top:14px;color:#4b392b;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.9rem}
+.foot .tagline{margin-top:10px;color:#4b392b;font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.9rem}
 .foot .love{margin-top:6px}
-.foot small{display:block;margin-top:44px;color:#9a6a84;font-weight:700}
+.foot small{display:block;margin-top:24px;color:#9a6a84;font-weight:700}
 
 /* ---------- cart bar + drawer ---------- */
 .cartbar{position:fixed;left:50%;bottom:16px;z-index:45;width:min(440px,calc(100% - 32px));display:flex;align-items:center;justify-content:space-between;
@@ -304,7 +304,7 @@ body.open .drawer{transform:none}
   .hstage{position:static;height:auto;padding:96px 0 64px}
   .how-grid{grid-template-columns:1fr;gap:40px}
   .bub{opacity:1;transform:none}
-  .foot{margin-top:28px;border-radius:36px 36px 0 0}
+  .foot{margin-top:28px;border-radius:32px 32px 0 0}
   .lounger{height:130px;right:20px}
 }
 
@@ -350,6 +350,37 @@ body.open .wafab{opacity:0;pointer-events:none}
 body.open .toast{opacity:0}
 .burst{position:fixed;z-index:80;pointer-events:none;width:16px;height:16px;margin:-8px 0 0 -8px;fill:var(--rose);color:var(--rose);font-size:15px;line-height:16px;text-align:center}
 @media (max-width:860px){.toast{bottom:84px}}
+
+/* ---------- extras 3: language, quick view, order checks ---------- */
+.lang{display:flex;gap:2px;background:var(--blush);border-radius:999px;padding:3px;margin-left:-8px}
+.cart-btn{white-space:nowrap}
+.lang button{white-space:nowrap;border:0;background:transparent;border-radius:999px;padding:5px 11px;font-weight:800;font-size:.8rem;color:var(--soft);cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--white);color:var(--rose);box-shadow:0 2px 6px -2px rgba(59,31,63,.35)}
+html[lang^="zh"]{--display:'Caprasimo','PingFang SC','Microsoft YaHei','Noto Sans SC','Noto Sans CJK SC',sans-serif;--body:'Nunito','PingFang SC','Microsoft YaHei','Noto Sans SC','Noto Sans CJK SC',system-ui,sans-serif}
+html[lang^="zh"] .h,html[lang^="zh"] .title,html[lang^="zh"] .price{font-weight:800}
+.card{cursor:pointer}
+.card:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.qv{position:fixed;inset:0;z-index:75;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(59,31,63,.5)}
+.qv.show{display:flex}
+body.qvopen{overflow:hidden}
+.qv-card{position:relative;background:var(--white);border-radius:28px;max-width:780px;width:100%;max-height:calc(100vh - 40px);overflow:auto;display:grid;grid-template-columns:1fr 1fr;box-shadow:0 30px 60px -20px rgba(59,31,63,.6)}
+.qv-pic{position:relative;aspect-ratio:1/1;background:var(--lilac)}
+.qv-pic img{width:100%;height:100%;object-fit:cover}
+.qv-body{padding:34px 28px 28px;display:flex;flex-direction:column;gap:12px;justify-content:center}
+.qv-body h3{font-family:var(--display);font-weight:400;font-size:1.7rem;line-height:1.15}
+.qv-body p{color:var(--soft);font-weight:600;white-space:pre-line}
+.qv-buy{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:8px;flex-wrap:wrap}
+.qv .price{font-size:1.7rem}
+.qv-x{position:absolute;top:12px;right:12px;z-index:2;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.95);font-size:1rem;font-weight:800;box-shadow:0 6px 14px -6px rgba(59,31,63,.5);cursor:pointer}
+.send-msg{margin:-4px 0 12px;padding:10px 14px;border-radius:14px;background:#fff0f3;color:#b3123c;font-weight:700;font-size:.9rem}
+.field.bad input,.field.bad textarea{border-color:#d3365a;background:#fff7f9}
+.field.bad::after{content:attr(data-err);display:block;color:#b3123c;font-size:.82rem;font-weight:700;margin-top:5px}
+.field.shake{animation:fshake .35s}
+@keyframes fshake{20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+.empty .btn{margin-top:16px}
+@media (max-width:860px){.lang{margin-left:auto}.cart-btn{margin-left:0}}
+@media (max-width:480px){.bar{gap:8px;padding-left:12px;padding-right:8px}.logo-img{height:34px!important}.lang button{padding:4px 7px;font-size:.74rem}.cart-btn{padding:8px 8px 8px 14px}}
+@media (max-width:700px){.qv{padding:0;align-items:flex-end}.qv-card{grid-template-columns:1fr;border-radius:28px 28px 0 0;max-height:92vh}.qv-pic{aspect-ratio:4/3}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -361,8 +392,9 @@ body.open .toast{opacity:0}
 <header class="top">
   <div class="bar">
     <a class="logo" href="#top" aria-label="PawSpy home"><img class="logo-img" data-brand alt="PawSpy"></a>
-    <nav class="links"><a href="#shop">Shop</a><a href="#how">How It Works</a><a href="#about">About Us</a></nav>
-    <button class="cart-btn" id="openCart" aria-label="Open cart">Cart <span class="count" id="count">0</span></button>
+    <nav class="links"><a href="#shop" data-i18n="nav_shop">Shop</a><a href="#how" data-i18n="nav_how">How It Works</a><a href="#about" data-i18n="nav_about">About Us</a></nav>
+    <div class="lang" role="group" aria-label="Language"><button data-lang="en" aria-pressed="true">EN</button><button data-lang="zh" aria-pressed="false">中文</button><button data-lang="ms" aria-pressed="false">BM</button></div>
+    <button class="cart-btn" id="openCart" aria-label="Open cart" data-i18n-aria="open_cart"><span data-i18n="cart">Cart</span> <span class="count" id="count">0</span></button>
   </div>
 </header>
 
@@ -382,24 +414,24 @@ body.open .toast{opacity:0}
       <div class="wrap sgrid">
         <div class="copy" id="copy">
           <div class="chap on">
-            <h1 class="h">Pretty things for pretty pets.</h1>
-            <p>Treats and accessories for dogs and cats. Add to cart, then send your order on WhatsApp.</p>
-            <button class="btn btn-rose" data-q="">Shop now</button>
+            <h1 class="h" data-i18n="h1">Pretty things for pretty pets.</h1>
+            <p data-i18n="h1p">Treats and accessories for dogs and cats. Add to cart, then send your order on WhatsApp.</p>
+            <button class="btn btn-rose" data-q="" data-i18n="shop_now">Shop now</button>
           </div>
           <div class="chap">
-            <h2 class="h">Treats they will beg for.</h2>
-            <p>Yummy snacks and chews, picked with love.</p>
-            <button class="btn btn-rose" data-q="treat">Shop treats</button>
+            <h2 class="h" data-i18n="h2">Treats they will beg for.</h2>
+            <p data-i18n="h2p">Yummy snacks and chews, picked with love.</p>
+            <button class="btn btn-rose" data-q="treat" data-i18n="shop_treats">Shop treats</button>
           </div>
           <div class="chap">
-            <h2 class="h">Made fresh, made with love.</h2>
-            <p>Wholesome bites for happy little tummies.</p>
-            <button class="btn btn-rose" data-q="">Shop now</button>
+            <h2 class="h" data-i18n="h3">Made fresh, made with love.</h2>
+            <p data-i18n="h3p">Wholesome bites for happy little tummies.</p>
+            <button class="btn btn-rose" data-q="" data-i18n="shop_now">Shop now</button>
           </div>
           <div class="chap">
-            <h2 class="h">Accessories that look this good.</h2>
-            <p>Pretty harnesses and little extras for every walk.</p>
-            <button class="btn btn-rose" data-q="accessor">Shop accessories</button>
+            <h2 class="h" data-i18n="h4">Accessories that look this good.</h2>
+            <p data-i18n="h4p">Pretty harnesses and little extras for every walk.</p>
+            <button class="btn btn-rose" data-q="accessor" data-i18n="shop_acc">Shop accessories</button>
           </div>
         </div>
         <div class="pets" id="pets">
@@ -418,7 +450,7 @@ body.open .toast{opacity:0}
         <button class="pd" data-go="2" aria-label="Made fresh"></button>
         <button class="pd" data-go="3" aria-label="Accessories"></button>
       </div>
-      <div class="hint" id="hint">Keep Scrolling</div>
+      <div class="hint" id="hint" data-i18n="hint">Keep Scrolling</div>
     </div>
   </section>
 
@@ -427,9 +459,9 @@ body.open .toast{opacity:0}
   <section class="shop" id="shop">
     <div class="paws" aria-hidden="true"></div>
     <div class="wrap">
-      <div class="shop-head rv"><h2 class="title">Our Shop</h2><span class="total-count" id="totalCount"></span></div>
+      <div class="shop-head rv"><h2 class="title" data-i18n="shop_title">Our Shop</h2><span class="total-count" id="totalCount"></span></div>
       <div class="tools rv" style="--d:.1s">
-        <input class="search" id="search" type="search" placeholder="Search products" aria-label="Search products">
+        <input class="search" id="search" type="search" placeholder="Search products" aria-label="Search products" data-i18n-ph="search" data-i18n-aria="search">
         <div class="chips" id="chips"></div>
       </div>
       <div class="grid" id="grid"><div class="skel"><i></i><i></i><i></i><i></i></div><div class="skel"><i></i><i></i><i></i><i></i></div><div class="skel"><i></i><i></i><i></i><i></i></div><div class="skel"><i></i><i></i><i></i><i></i></div></div>
@@ -442,17 +474,17 @@ body.open .toast{opacity:0}
         <div class="paws" aria-hidden="true"></div>
         <div class="wrap how-grid">
           <div>
-            <h2 class="title">Order in three steps</h2>
+            <h2 class="title" data-i18n="how_title">Order in three steps</h2>
             <ol class="steps" id="steps">
-              <li><div><h3>Add to cart</h3><p>Browse the shop and tap + on what you want.</p></div></li>
-              <li><div><h3>Send on WhatsApp</h3><p>Your order is written out for you. Tap send.</p></div></li>
-              <li><div><h3>Order Confirmation</h3><p>We reply with delivery details and how to make the payment.</p></div></li>
+              <li><div><h3 data-i18n="s1t">Add to cart</h3><p data-i18n="s1p">Browse the shop and tap + on what you want.</p></div></li>
+              <li><div><h3 data-i18n="s2t">Send on WhatsApp</h3><p data-i18n="s2p">Your order is written out for you. Tap send.</p></div></li>
+              <li><div><h3 data-i18n="s3t">Order Confirmation</h3><p data-i18n="s3p">We reply with delivery details and how to make the payment.</p></div></li>
             </ol>
           </div>
           <div class="chat" aria-label="Example WhatsApp order">
             <div class="chat-head">
               <div class="avatar"><svg viewBox="0 0 32 32" aria-hidden="true"><ellipse cx="16" cy="21" rx="7" ry="6" fill="#fff"/><circle cx="6" cy="13" r="3.2" fill="#fff"/><circle cx="12" cy="7" r="3.2" fill="#fff"/><circle cx="20" cy="7" r="3.2" fill="#fff"/><circle cx="26" cy="13" r="3.2" fill="#fff"/></svg></div>
-              <div><b class="store-name">PawSpy</b><small>Example order</small></div>
+              <div><b class="store-name">PawSpy</b><small data-i18n="example">Example order</small></div>
             </div>
             <div class="bub out" id="bubOut">Hi PawSpy, I'd like to order:
 
@@ -464,7 +496,7 @@ Total: RM 57.70
 Name: Shao
 Phone: 012-345 6789
 Pet: Sour, 1 May 2023</div>
-            <div class="bub in" id="bubIn">Thanks Shao! Your order is confirmed. We'll send the delivery details now.</div>
+            <div class="bub in" id="bubIn" data-i18n="bubin">Thanks Shao! Your order is confirmed. We'll send the delivery details now.</div>
             <img class="dog" data-dog="side" alt="Our Pomeranian standing and looking at you">
           </div>
         </div>
@@ -476,17 +508,17 @@ Pet: Sour, 1 May 2023</div>
     <div class="wrap about-grid">
       <div class="about-art rv"><img class="dog" data-dog="tilt" alt="Our Pomeranian mascot sitting in a yellow shirt"></div>
       <div class="rv" style="--d:.15s">
-        <h2 class="title">Our Story</h2>
-        <p class="lead">We started this with a simple belief: Pets are more than just pets — THEY ARE FAMILY.</p>
-        <p class="more">PawSpy was created to give something back. Because they give us a lifetime of love.<br>We’re here to give them the care they deserve.</p>
+        <h2 class="title" data-i18n="about_title">Our Story</h2>
+        <p class="lead" data-i18n="lead">We started this with a simple belief: Pets are more than just pets — THEY ARE FAMILY.</p>
+        <p class="more" data-i18n-html="more1">PawSpy was created to give something back. Because they give us a lifetime of love.<br>We’re here to give them the care they deserve.</p>
         <p class="more"><b>PawSpy — Secure • Protect • Yours.</b></p>
         <ul class="points">
-          <li><i><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></i><div><b>Treats pets love</b><span>Snacks and chews for dogs and cats.</span></div></li>
-          <li><i><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></i><div><b>Accessories with style</b><span>Harnesses and everyday extras that look good too.</span></div></li>
-          <li><i><svg viewBox="0 0 32 32"><ellipse cx="16" cy="21" rx="7" ry="6"/><circle cx="6" cy="13" r="3.2"/><circle cx="12" cy="7" r="3.2"/><circle cx="20" cy="7" r="3.2"/><circle cx="26" cy="13" r="3.2"/></svg></i><div><b>Easy ordering</b><span>Build your cart and send it on WhatsApp.</span></div></li>
+          <li><i><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></i><div><b data-i18n="p1t">Treats pets love</b><span data-i18n="p1p">Snacks and chews for dogs and cats.</span></div></li>
+          <li><i><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg></i><div><b data-i18n="p2t">Accessories with style</b><span data-i18n="p2p">Harnesses and everyday extras that look good too.</span></div></li>
+          <li><i><svg viewBox="0 0 32 32"><ellipse cx="16" cy="21" rx="7" ry="6"/><circle cx="6" cy="13" r="3.2"/><circle cx="12" cy="7" r="3.2"/><circle cx="20" cy="7" r="3.2"/><circle cx="26" cy="13" r="3.2"/></svg></i><div><b data-i18n="p3t">Easy ordering</b><span data-i18n="p3p">Build your cart and send it on WhatsApp.</span></div></li>
         </ul>
         <div class="about-cta">
-          <a class="btn btn-ig" href="https://www.instagram.com/pawspy.official/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>Follow us on Instagram</a>
+          <a class="btn btn-ig" href="https://www.instagram.com/pawspy.official/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg><span data-i18n="follow_ig">Follow us on Instagram</span></a>
           <span class="handle">@pawspy.official</span>
         </div>
       </div>
@@ -508,7 +540,7 @@ Pet: Sour, 1 May 2023</div>
       </div>
       <div class="foot-btns">
         <a class="btn btn-ig" href="https://www.instagram.com/pawspy.official/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg>@pawspy.official</a>
-        <a class="btn btn-wa" id="waLink" href="#" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        <a class="btn btn-wa" id="waLink" href="#" target="_blank" rel="noopener" data-i18n="chat_wa">Chat on WhatsApp</a>
       </div>
     </div>
     <small>© <span id="year"></span> <span class="store-name">PawSpy</span></small>
@@ -554,27 +586,41 @@ Pet: Sour, 1 May 2023</div>
   </div>
 </div>
 
-<div class="toast" id="toast" role="status" aria-live="polite">Added! 🐾</div>
+<div class="qv" id="qv" role="dialog" aria-modal="true" aria-labelledby="qvName">
+  <div class="qv-card">
+    <button class="qv-x" id="qvClose" aria-label="Close">✕</button>
+    <div class="qv-pic"><img id="qvImg" alt=""><span class="tag" id="qvTag"></span><span id="qvFlag"></span></div>
+    <div class="qv-body">
+      <h3 id="qvName"></h3>
+      <p id="qvDesc"></p>
+      <div class="qv-buy"><span class="price" id="qvPrice"></span><div id="qvAct"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite" data-i18n="added">Added! 🐾</div>
 <a class="wafab" id="waFab" href="#" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 32 32"><path d="M16.04 3C9.4 3 4 8.38 4 15.01c0 2.12.55 4.18 1.6 6L4 29l8.2-1.56a12.04 12.04 0 0 0 3.84.62C22.68 28.06 28 22.66 28 16.02 28 9.38 22.68 3 16.04 3Zm0 22.03c-1.2 0-2.38-.32-3.4-.93l-.5-.3-4.86.92.95-4.72-.33-.52a9.9 9.9 0 0 1-1.52-5.27c0-5.5 4.5-9.97 10.06-9.97 5.5 0 9.9 4.48 9.9 9.98 0 5.52-4.4 9.8-10.3 9.8Zm5.43-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35Z"/></svg></a>
-<button class="cartbar" id="cartbar" aria-label="View cart"><span id="barText"></span><span class="go">View cart</span></button>
+<button class="cartbar" id="cartbar" aria-label="View cart"><span id="barText"></span><span class="go" data-i18n="view_cart">View cart</span></button>
 
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Your cart" aria-hidden="true">
-  <div class="d-head"><h2>Your Cart</h2><button class="close" id="closeCart" aria-label="Close cart">✕</button></div>
+  <div class="d-head"><h2 data-i18n="cart_title">Your Cart</h2><button class="close" id="closeCart" aria-label="Close cart">✕</button></div>
   <div class="d-body">
     <div id="lines"></div>
     <div id="checkout">
-      <label class="field">Your name<input id="custName" type="text" autocomplete="name" placeholder="e.g. Shao"></label>
-      <label class="field">Phone number<input id="custPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="e.g. 012-345 6789"></label>
-      <label class="field">Pet's name and birthday<input id="custPet" type="text" placeholder="e.g. Sour, 1 May 2023"></label>
-      <label class="field">Delivery address or note<textarea id="custNote" rows="2" placeholder="Address, or anything we should know"></textarea></label>
-      <div class="preview"><small>This is the message we'll open in WhatsApp</small><div class="msg" id="bubble"></div></div>
+      <label class="field"><span data-i18n="lbl_name">Your name</span><input id="custName" type="text" autocomplete="name" placeholder="e.g. Shao" data-i18n-ph="ph_name"></label>
+      <label class="field"><span data-i18n="lbl_phone">Phone number</span><input id="custPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="e.g. 012-345 6789" data-i18n-ph="ph_phone"></label>
+      <label class="field"><span data-i18n="lbl_pet">Pet's name and birthday</span><input id="custPet" type="text" placeholder="e.g. Sour, 1 May 2023" data-i18n-ph="ph_pet"></label>
+      <label class="field"><span data-i18n="lbl_note">Delivery address or note</span><textarea id="custNote" rows="2" placeholder="Address, or anything we should know" data-i18n-ph="ph_note"></textarea></label>
+      <label class="field"><span data-i18n="lbl_voucher">Voucher code (optional)</span><input id="custVoucher" type="text" autocomplete="off" autocapitalize="characters" placeholder="e.g. PAWSPY10" data-i18n-ph="ph_voucher"></label>
+      <div class="preview"><small data-i18n="preview">This is the message we'll open in WhatsApp</small><div class="msg" id="bubble"></div></div>
     </div>
   </div>
   <div class="d-foot">
-    <div class="total"><span>Total</span><span id="total">RM 0.00</span></div>
-    <p class="fee-note">Delivery fee will be added on and will be informed in WhatsApp</p>
-    <button class="send" id="send">Send order on WhatsApp</button>
+    <div class="total"><span data-i18n="total">Total</span><span id="total">RM 0.00</span></div>
+    <p class="fee-note" data-i18n="fee">Delivery fee will be added on and will be informed in WhatsApp</p>
+    <p class="send-msg" id="sendMsg" role="alert" hidden></p>
+    <button class="send" id="send" data-i18n="send">Send order on WhatsApp</button>
   </div>
 </aside>
 
@@ -728,29 +774,95 @@ function fitHow(){
 }
 fitHow(); addEventListener('resize', fitHow); addEventListener('load', fitHow);
 
+
+/* =========================================================
+   LANGUAGE  (English / 中文 / Bahasa Malaysia)
+   Shop products (names, descriptions) come from your Sheet and are shown as typed.
+   The WhatsApp order message stays in English so you can read every order the same way.
+   ========================================================= */
+const T = {"en": {"nav_shop": "Shop", "nav_how": "How It Works", "nav_about": "About Us", "cart": "Cart", "open_cart": "Open cart", "h1": "Pretty things for pretty pets.", "h1p": "Treats and accessories for dogs and cats. Add to cart, then send your order on WhatsApp.", "shop_now": "Shop now", "h2": "Treats they will beg for.", "h2p": "Yummy snacks and chews, picked with love.", "shop_treats": "Shop treats", "h3": "Made fresh, made with love.", "h3p": "Wholesome bites for happy little tummies.", "h4": "Accessories that look this good.", "h4p": "Pretty harnesses and little extras for every walk.", "shop_acc": "Shop accessories", "hint": "Keep Scrolling", "shop_title": "Our Shop", "search": "Search products", "all": "All", "prod_1": "{n} product", "prod_n": "{n} products", "nomatch": "No products match. Try another word or category.", "how_title": "Order in three steps", "s1t": "Add to cart", "s1p": "Browse the shop and tap + on what you want.", "s2t": "Send on WhatsApp", "s2p": "Your order is written out for you. Tap send.", "s3t": "Order Confirmation", "s3p": "We reply with delivery details and how to make the payment.", "example": "Example order", "bubin": "Thanks Shao! Your order is confirmed. We'll send the delivery details now.", "about_title": "Our Story", "lead": "We started this with a simple belief: Pets are more than just pets — THEY ARE FAMILY.", "more1": "PawSpy was created to give something back. Because they give us a lifetime of love.<br>We’re here to give them the care they deserve.", "p1t": "Treats pets love", "p1p": "Snacks and chews for dogs and cats.", "p2t": "Accessories with style", "p2p": "Harnesses and everyday extras that look good too.", "p3t": "Easy ordering", "p3p": "Build your cart and send it on WhatsApp.", "follow_ig": "Follow us on Instagram", "thanks": "Thanks For Support", "chat_wa": "Chat on WhatsApp", "cart_title": "Your Cart", "lbl_name": "Your name", "ph_name": "e.g. Shao", "lbl_phone": "Phone number", "ph_phone": "e.g. 012-345 6789", "lbl_pet": "Pet's name and birthday", "ph_pet": "e.g. Sour, 1 May 2023", "lbl_note": "Delivery address or note", "ph_note": "Address, or anything we should know", "lbl_voucher": "Voucher code (optional)", "ph_voucher": "e.g. PAWSPY10", "preview": "This is the message we'll open in WhatsApp", "total": "Total", "fee": "Delivery fee will be added on and will be informed in WhatsApp", "send": "Send order on WhatsApp", "view_cart": "View cart", "items_1": "{n} item · ", "items_n": "{n} items · ", "empty": "Your cart is empty. Add something your pet will like.", "each": "{p} each", "added": "Added! 🐾", "sold": "Sold out", "new": "✨ New", "best": "🔥 Best seller", "add_cart": "Add to cart", "close": "Close", "lang": "Language", "err_empty": "Your cart is empty. Add something your pet will like first 🐾", "err_name": "Please tell us your name.", "err_phone": "Please add your phone number so we can reach you.", "err_phone_bad": "That phone number looks too short. Please check it.", "err_fix": "Almost there! Please fill in the highlighted box."}, "zh": {"nav_shop": "商店", "nav_how": "如何下单", "nav_about": "关于我们", "cart": "购物车", "open_cart": "打开购物车", "h1": "给漂亮的宠物，最美好的好物。", "h1p": "狗狗和猫咪的零食与配件。加入购物车，然后通过 WhatsApp 发送订单。", "shop_now": "立即选购", "h2": "让它们馋到求你的零食。", "h2p": "美味的零食和耐嚼小食，用心挑选。", "shop_treats": "选购零食", "h3": "新鲜制作，用爱调制。", "h3p": "营养健康的小点心，给开心的小肚子。", "h4": "好看到不行的配件。", "h4p": "漂亮的胸背带和小配件，陪每一次散步。", "shop_acc": "选购配件", "hint": "继续滚动", "shop_title": "我们的商店", "search": "搜索商品", "all": "全部", "prod_1": "{n} 件商品", "prod_n": "{n} 件商品", "nomatch": "没有符合的商品，请试试其他关键词或分类。", "how_title": "三步下单", "s1t": "加入购物车", "s1p": "浏览商店，点击 + 添加您想要的商品。", "s2t": "通过 WhatsApp 发送", "s2p": "订单内容会自动写好，点击发送即可。", "s3t": "订单确认", "s3p": "我们会回复送货详情和付款方式。", "example": "示例订单", "bubin": "谢谢 Shao！您的订单已确认，我们现在发送送货详情。", "about_title": "我们的故事", "lead": "我们怀着一个简单的信念开始：宠物不只是宠物——它们是家人。", "more1": "PawSpy 的诞生，是为了回馈。因为它们给了我们一生的爱。<br>我们在这里，给它们应得的呵护。", "p1t": "宠物爱吃的零食", "p1p": "狗狗和猫咪的零食与耐嚼小食。", "p2t": "有型的配件", "p2p": "胸背带和日常小配件，好看又实用。", "p3t": "轻松下单", "p3p": "建好购物车，通过 WhatsApp 发送。", "follow_ig": "在 Instagram 关注我们", "thanks": "感谢您的支持", "chat_wa": "WhatsApp 联系我们", "cart_title": "您的购物车", "lbl_name": "您的姓名", "ph_name": "例如：Shao", "lbl_phone": "电话号码", "ph_phone": "例如：012-345 6789", "lbl_pet": "宠物的名字和生日", "ph_pet": "例如：Sour，2023年5月1日", "lbl_note": "送货地址或备注", "ph_note": "地址，或其他需要我们知道的事", "lbl_voucher": "优惠码（选填）", "ph_voucher": "例如：PAWSPY10", "preview": "这是我们将在 WhatsApp 中打开的信息（英文）", "total": "总计", "fee": "运费将另加，并会通过 WhatsApp 告知", "send": "通过 WhatsApp 发送订单", "view_cart": "查看购物车", "items_1": "{n} 件商品 · ", "items_n": "{n} 件商品 · ", "empty": "购物车是空的，加点您的宠物会喜欢的东西吧。", "each": "单价 {p}", "added": "已加入！🐾", "sold": "已售罄", "new": "✨ 新品", "best": "🔥 热卖", "add_cart": "加入购物车", "close": "关闭", "lang": "语言", "err_empty": "购物车是空的，先添加宠物会喜欢的东西吧 🐾", "err_name": "请填写您的姓名。", "err_phone": "请填写电话号码，方便我们联系您。", "err_phone_bad": "电话号码似乎太短，请检查一下。", "err_fix": "快好了！请填写标红的栏位。"}, "ms": {"nav_shop": "Kedai", "nav_how": "Cara Pesan", "nav_about": "Tentang Kami", "cart": "Troli", "open_cart": "Buka troli", "h1": "Barang comel, haiwan comel.", "h1p": "Snek & aksesori anjing dan kucing. Pilih, tambah ke troli, hantar di WhatsApp.", "shop_now": "Beli sekarang", "h2": "Snek yang buat mereka merayu.", "h2p": "Snek dan kunyahan yang sedap, dipilih dengan penuh kasih sayang.", "shop_treats": "Beli snek", "h3": "Dibuat segar, dibuat dengan kasih sayang.", "h3p": "Makanan sihat untuk perut kecil yang gembira.", "h4": "Aksesori yang nampak secantik ini.", "h4p": "Tali dada yang cantik dan barangan kecil untuk setiap jalan-jalan.", "shop_acc": "Beli aksesori", "hint": "Tatal ke bawah", "shop_title": "Kedai Kami", "search": "Cari produk", "all": "Semua", "prod_1": "{n} produk", "prod_n": "{n} produk", "nomatch": "Tiada produk sepadan. Cuba perkataan atau kategori lain.", "how_title": "Pesan dalam tiga langkah", "s1t": "Tambah ke troli", "s1p": "Layari kedai dan tekan + pada barang yang anda mahu.", "s2t": "Hantar melalui WhatsApp", "s2p": "Pesanan anda ditulis secara automatik. Tekan hantar.", "s3t": "Pengesahan Pesanan", "s3p": "Kami akan membalas dengan butiran penghantaran dan cara pembayaran.", "example": "Contoh pesanan", "bubin": "Terima kasih Shao! Pesanan anda telah disahkan. Kami akan hantar butiran penghantaran sekarang.", "about_title": "Kisah Kami", "lead": "Kami bermula dengan satu kepercayaan mudah: Haiwan peliharaan lebih daripada sekadar haiwan — MEREKA ADALAH KELUARGA.", "more1": "PawSpy diwujudkan untuk membalas budi. Kerana mereka memberi kita kasih sayang seumur hidup.<br>Kami di sini untuk memberi mereka penjagaan yang sewajarnya.", "p1t": "Snek yang disukai haiwan", "p1p": "Snek dan kunyahan untuk anjing dan kucing.", "p2t": "Aksesori bergaya", "p2p": "Tali dada dan barangan harian yang nampak cantik juga.", "p3t": "Pesanan mudah", "p3p": "Susun troli anda dan hantar melalui WhatsApp.", "follow_ig": "Ikuti kami di Instagram", "thanks": "Terima Kasih Atas Sokongan", "chat_wa": "Sembang di WhatsApp", "cart_title": "Troli Anda", "lbl_name": "Nama anda", "ph_name": "cth. Shao", "lbl_phone": "Nombor telefon", "ph_phone": "cth. 012-345 6789", "lbl_pet": "Nama dan hari jadi haiwan peliharaan", "ph_pet": "cth. Sour, 1 Mei 2023", "lbl_note": "Alamat penghantaran atau nota", "ph_note": "Alamat, atau apa-apa yang perlu kami tahu", "lbl_voucher": "Kod baucar (pilihan)", "ph_voucher": "cth. PAWSPY10", "preview": "Ini mesej yang akan dibuka di WhatsApp (dalam Bahasa Inggeris)", "total": "Jumlah", "fee": "Kos penghantaran akan ditambah dan akan dimaklumkan melalui WhatsApp", "send": "Hantar pesanan melalui WhatsApp", "view_cart": "Lihat troli", "items_1": "{n} item · ", "items_n": "{n} item · ", "empty": "Troli anda kosong. Tambah sesuatu yang disukai haiwan anda.", "each": "{p} setiap satu", "added": "Ditambah! 🐾", "sold": "Habis dijual", "new": "✨ Baharu", "best": "🔥 Terlaris", "add_cart": "Tambah ke troli", "close": "Tutup", "lang": "Bahasa", "err_empty": "Troli anda kosong. Tambah sesuatu yang disukai haiwan anda dahulu 🐾", "err_name": "Sila isi nama anda.", "err_phone": "Sila isi nombor telefon supaya kami boleh menghubungi anda.", "err_phone_bad": "Nombor telefon ini nampak terlalu pendek. Sila semak.", "err_fix": "Hampir siap! Sila isi ruangan yang ditandakan."}};
+const LANG_KEY = 'pawspy_lang';
+let lang = 'en';
+try {
+  const saved = localStorage.getItem(LANG_KEY);
+  if(saved && T[saved]) lang = saved;
+  else { const n = (navigator.language || 'en').toLowerCase(); lang = n.startsWith('zh') ? 'zh' : (n.startsWith('ms') || n.startsWith('id')) ? 'ms' : 'en'; }
+} catch(e){}
+const tr = (k, v) => { let s = (T[lang][k] !== undefined ? T[lang][k] : T.en[k]) || k; if(v) for(const x in v) s = s.split('{' + x + '}').join(v[x]); return s; };
+function buildStrips(){
+  const spark = '<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>';
+  const mk = (word, n) => Array.from({length: n}, () => `<span>${esc(word)}</span>${spark}`).join('');
+  const one = mk(CONFIG.STORE_NAME, 8), two = mk(tr('thanks'), 6);
+  stripIn.innerHTML = one + one;
+  $('#stripIn2').innerHTML = two + two;   // two identical halves so the loop is seamless
+}
+function applyLang(){
+  document.documentElement.lang = lang === 'zh' ? 'zh-Hans' : lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = tr(el.dataset.i18n); });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => { el.innerHTML = tr(el.dataset.i18nHtml); });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.placeholder = tr(el.dataset.i18nPh); });
+  document.querySelectorAll('[data-i18n-aria]').forEach(el => { el.setAttribute('aria-label', tr(el.dataset.i18nAria)); });
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === lang));
+  buildStrips();
+  if(products.length){ renderChips(); renderGrid(false); }
+  renderCart();
+  if(qvId) renderQV();
+  clearErrs();
+}
+
+/* ---------- quick view ---------- */
+let qvId = null;
+const badgeHtml = p => p.badge === 'new' ? `<span class="flag new">${tr('new')}</span>` : p.badge === 'best' ? `<span class="flag">${tr('best')}</span>` : '';
+function buyHtml(p, qty){
+  return p.soldOut ? `<span class="add off">${tr('sold')}</span>`
+    : qty ? `<div class="stepper"><button data-dec="${p.id}" aria-label="Remove one ${esc(p.name)}">−</button><span>${qty}</span><button data-inc="${p.id}" aria-label="Add one ${esc(p.name)}">+</button></div>`
+    : `<button class="btn btn-rose" data-inc="${p.id}">${tr('add_cart')}</button>`;
+}
+function renderQV(){
+  const p = products.find(x => x.id === qvId); if(!p) return closeQV();
+  const img = $('#qvImg'); img.onerror = () => { img.onerror = null; img.src = placeholder(p.type); };
+  img.src = p.image || placeholder(p.type); img.alt = p.name;
+  const tg = $('#qvTag'); tg.textContent = p.type || ''; tg.style.display = p.type ? '' : 'none';
+  $('#qvFlag').innerHTML = badgeHtml(p);
+  $('#qvName').textContent = p.name;
+  const d = $('#qvDesc'); d.textContent = p.desc || ''; d.style.display = p.desc ? '' : 'none';
+  $('#qvPrice').textContent = money(p.price);
+  $('#qvAct').innerHTML = buyHtml(p, cart[p.id] || 0);
+}
+function openQV(id){ qvId = id; renderQV(); $('#qv').classList.add('show'); document.body.classList.add('qvopen'); $('#qvClose').focus(); }
+function closeQV(){ qvId = null; $('#qv').classList.remove('show'); document.body.classList.remove('qvopen'); }
+
+/* ---------- order checks ---------- */
+function showSendMsg(m){ const e = $('#sendMsg'); e.textContent = m; e.hidden = !m; }
+function clearErrs(){ document.querySelectorAll('.field.bad').forEach(l => l.classList.remove('bad')); showSendMsg(''); }
+function fieldErr(id, key){
+  const l = $('#' + id).closest('.field'); l.dataset.err = tr(key); l.classList.add('bad');
+  l.classList.remove('shake'); void l.offsetWidth; l.classList.add('shake');
+}
+
 /* ---------- catalog render ---------- */
 const TILT = [-1.8, 1.4, -0.9, 2];
 const TAPE = ['rgba(255,214,228,.92)','rgba(233,224,255,.92)','rgba(255,240,179,.92)','rgba(216,244,230,.92)'];
 function renderChips(){
   const types = ['All', ...new Set(products.map(p => p.type).filter(Boolean))];
-  $('#chips').innerHTML = types.map(t => `<button class="chip" aria-pressed="${t===filterType}" data-t="${esc(t)}">${esc(t)}</button>`).join('');
+  $('#chips').innerHTML = types.map(t => `<button class="chip" aria-pressed="${t===filterType}" data-t="${esc(t)}">${t === 'All' ? tr('all') : esc(t)}</button>`).join('');
 }
 function renderGrid(animate = true){
   const list = products.filter(p =>
     (filterType === 'All' || p.type === filterType) &&
     (!query || (p.name + ' ' + p.type).toLowerCase().includes(query)));
-  $('#totalCount').textContent = products.length ? list.length + (list.length === 1 ? ' product' : ' products') : '';
-  if(!list.length){ $('#grid').innerHTML = '<div class="state">No products match. Try another word or category.</div>'; return; }
+  $('#totalCount').textContent = products.length ? tr(list.length === 1 ? 'prod_1' : 'prod_n', {n: list.length}) : '';
+  if(!list.length){ $('#grid').innerHTML = '<div class="state">' + tr('nomatch') + '</div>'; return; }
   $('#grid').innerHTML = list.map((p, i) => {
     const qty = cart[p.id] || 0;
-    const buy = p.soldOut ? '<span class="add off">Sold out</span>'
+    const buy = p.soldOut ? `<span class="add off">${tr('sold')}</span>`
       : qty ? `<div class="stepper"><button data-dec="${p.id}" aria-label="Remove one ${esc(p.name)}">−</button><span>${qty}</span><button data-inc="${p.id}" aria-label="Add one ${esc(p.name)}">+</button></div>`
       : `<button class="add" data-inc="${p.id}" aria-label="Add ${esc(p.name)} to cart">+</button>`;
-    return `<article class="card${animate ? ' reveal' : ''}${p.soldOut ? ' is-sold' : ''}" style="--r:${TILT[i % 4]}deg;--d:${(i % 4) * 70}ms;--t:${TAPE[i % 4]}">
+    return `<article class="card${animate ? ' reveal' : ''}${p.soldOut ? ' is-sold' : ''}" data-id="${p.id}" tabindex="0" aria-haspopup="dialog" style="--r:${TILT[i % 4]}deg;--d:${(i % 4) * 70}ms;--t:${TAPE[i % 4]}">
       <div class="pic">
         <img src="${esc(p.image || placeholder(p.type))}" alt="${esc(p.name)}" loading="lazy" onerror="this.onerror=null;this.src='${placeholder(p.type)}'">
         ${p.type ? `<span class="tag">${esc(p.type)}</span>` : ''}
-        ${p.badge === 'new' ? '<span class="flag new">✨ New</span>' : p.badge === 'best' ? '<span class="flag">🔥 Best seller</span>' : ''}
+        ${badgeHtml(p)}
       </div>
       <div class="body">
         <h3 class="name">${esc(p.name)}</h3>
@@ -770,18 +882,20 @@ function change(id, d){
   save();
   renderGrid(false);
   renderCart();
+  if(qvId) renderQV();
 }
 function cartItems(){ return Object.entries(cart).map(([id, q]) => ({p: products.find(x => x.id === id), q})).filter(x => x.p); }
 function orderText(){
   const items = cartItems();
   const total = items.reduce((s, x) => s + x.p.price * x.q, 0);
-  const name = $('#custName').value.trim(), phone = $('#custPhone').value.trim(), pet = $('#custPet').value.trim(), note = $('#custNote').value.trim();
+  const name = $('#custName').value.trim(), phone = $('#custPhone').value.trim(), pet = $('#custPet').value.trim(), voucher = $('#custVoucher').value.trim(), note = $('#custNote').value.trim();
   let t = `Hi ${CONFIG.STORE_NAME}, I'd like to order:\n\n`;
   items.forEach((x, i) => { t += `${i+1}. ${x.p.name} x${x.q} – ${money(x.p.price * x.q)}\n`; });
   t += `\nTotal: ${money(total)}`;
   if(name) t += `\n\nName: ${name}`;
   if(phone) t += `\nPhone: ${phone}`;
   if(pet) t += `\nPet: ${pet}`;
+  if(voucher) t += `\nVoucher: ${voucher}`;
   if(note) t += `\nNote: ${note}`;
   return t;
 }
@@ -793,17 +907,16 @@ function renderCart(){
   if(count > lastCount){ const c = $('#count'); c.classList.remove('pop'); void c.offsetWidth; c.classList.add('pop'); }
   lastCount = count;
   $('#total').textContent = money(total);
-  $('#barText').textContent = count + (count === 1 ? ' item · ' : ' items · ') + money(total);
+  $('#barText').textContent = tr(count === 1 ? 'items_1' : 'items_n', {n: count}) + money(total);
   $('#cartbar').classList.toggle('show', count > 0);
   document.body.classList.toggle('has-cart', count > 0);
   $('#lines').innerHTML = items.length ? items.map(x => `
     <div class="line">
       <img src="${esc(x.p.image || placeholder(x.p.type))}" alt="" onerror="this.onerror=null;this.src='${placeholder(x.p.type)}'">
-      <div><div class="n">${esc(x.p.name)}</div><div class="p">${money(x.p.price)} each</div></div>
+      <div><div class="n">${esc(x.p.name)}</div><div class="p">${tr('each', {p: money(x.p.price)})}</div></div>
       <div class="stepper"><button data-dec="${x.p.id}" aria-label="Remove one">−</button><span>${x.q}</span><button data-inc="${x.p.id}" aria-label="Add one">+</button></div>
-    </div>`).join('') : '<div class="empty">Your cart is empty. Add something your pet will like.</div>';
+    </div>`).join('') : '<div class="empty">' + tr('empty') + '<br><button class="btn btn-rose" data-q="">' + tr('shop_now') + '</button></div>';
   $('#checkout').style.display = items.length ? '' : 'none';
-  $('#send').disabled = !items.length;
   if(items.length) $('#bubble').textContent = orderText();
 }
 function openCart(o){
@@ -812,7 +925,18 @@ function openCart(o){
   if(o) $('#closeCart').focus();
 }
 function send(){
-  if(!cartItems().length) return;
+  clearErrs();
+  if(!cartItems().length){ showSendMsg(tr('err_empty')); return; }
+  const name = $('#custName').value.trim(), phone = $('#custPhone').value.trim();
+  let first = null;
+  if(!name){ fieldErr('custName', 'err_name'); first = $('#custName'); }
+  if(phone.replace(/\D/g, '').length < 8){ fieldErr('custPhone', phone ? 'err_phone_bad' : 'err_phone'); first = first || $('#custPhone'); }
+  if(first){
+    showSendMsg(tr('err_fix'));
+    first.scrollIntoView({block: 'center', behavior: reduce ? 'auto' : 'smooth'});
+    first.focus({preventScroll: true});
+    return;
+  }
   window.open('https://wa.me/' + CONFIG.WHATSAPP_NUMBER + '?text=' + encodeURIComponent(orderText()), '_blank', 'noopener');
 }
 function goShop(q){
@@ -828,7 +952,7 @@ function goShop(q){
 let toastT;
 function pop(rect){
   if(reduce || document.body.classList.contains('open')) return;
-  const tt = $('#toast'); tt.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => tt.classList.remove('show'), 1400);
+  if(!qvId){ const tt = $('#toast'); tt.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => tt.classList.remove('show'), 1400); }
   if(!rect || !rect.width) return;
   const cx = rect.left + rect.width / 2, cy = rect.top + rect.height / 2;
   for(let i = 0; i < 7; i++){
@@ -842,18 +966,25 @@ function pop(rect){
 
 /* ---------- events ---------- */
 document.addEventListener('click', e => {
+  if(e.target === $('#qv')) return closeQV();
+  const card = e.target.closest('.card');
+  if(card && card.dataset.id && !e.target.closest('button')) return openQV(card.dataset.id);
   const t = e.target.closest('button'); if(!t) return;
+  if(t.dataset.lang){ lang = t.dataset.lang; try{ localStorage.setItem(LANG_KEY, lang); }catch(err){} return applyLang(); }
   if(t.dataset.inc){ const rc = t.getBoundingClientRect(); change(t.dataset.inc, 1); pop(rc); }
   else if(t.dataset.dec) change(t.dataset.dec, -1);
   else if(t.dataset.t !== undefined){ filterType = t.dataset.t; renderChips(); renderGrid(); }
-  else if(t.dataset.q !== undefined) goShop(t.dataset.q);
+  else if(t.dataset.q !== undefined){ openCart(false); closeQV(); goShop(t.dataset.q); }
   else if(t.dataset.go !== undefined) jumpTo(+t.dataset.go);
 });
 $('#openCart').onclick = $('#cartbar').onclick = () => openCart(true);
 $('#closeCart').onclick = $('#scrim').onclick = () => openCart(false);
-document.addEventListener('keydown', e => { if(e.key === 'Escape') openCart(false); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape'){ if(qvId) closeQV(); else openCart(false); } });
+$('#qvClose').onclick = closeQV;
+$('#grid').addEventListener('keydown', e => { if(e.key === 'Enter' && e.target.classList.contains('card')) openQV(e.target.dataset.id); });
+['custName','custPhone'].forEach(id => $('#' + id).addEventListener('input', () => $('#' + id).closest('.field').classList.remove('bad')));
 $('#search').oninput = e => { query = e.target.value.trim().toLowerCase(); renderGrid(); };
-$('#custName').oninput = $('#custPhone').oninput = $('#custPet').oninput = $('#custNote').oninput = () => { if(cartItems().length) $('#bubble').textContent = orderText(); };
+$('#custName').oninput = $('#custPhone').oninput = $('#custPet').oninput = $('#custVoucher').oninput = $('#custNote').oninput = () => { if(cartItems().length) $('#bubble').textContent = orderText(); };
 $('#send').onclick = send;
 
 /* =========================================================
@@ -868,14 +999,6 @@ const chaps = [...document.querySelectorAll('#htrack .chap')], poses = [...docum
 const stepEls = [...document.querySelectorAll('#steps li')];
 let active = -1, ticking = false;
 
-// ticker words
-(function(){
-  const spark = '<svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>';
-  const mk = (word, n) => Array.from({length: n}, () => `<span>${esc(word)}</span>${spark}`).join('');
-  const one = mk(CONFIG.STORE_NAME, 8), two = mk('Thanks For Support', 6);
-  stripIn.innerHTML = one + one;
-  $('#stripIn2').innerHTML = two + two;   // two identical halves so the loop is seamless
-})();
 
 const progressOf = el => clamp(-el.getBoundingClientRect().top / Math.max(1, el.offsetHeight - innerHeight), 0, 1);
 function bgAtX(p, BG, CENTERS){
@@ -942,6 +1065,7 @@ async function load(){
   document.querySelectorAll('.store-name').forEach(n => n.textContent = CONFIG.STORE_NAME);
   document.title = CONFIG.STORE_NAME + ' – Pretty things for pretty pets';
   $('#year').textContent = new Date().getFullYear();
+  applyLang();
   $('#waLink').href = $('#waFab').href = 'https://wa.me/' + CONFIG.WHATSAPP_NUMBER;
   update();
   try {
